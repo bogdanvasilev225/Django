@@ -1,5 +1,3 @@
-from dataclasses import fields
-from pyexpat import model
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator, MaxLengthValidator
@@ -25,7 +23,6 @@ class AddPostForm(forms.ModelForm):
     cat = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label="Категория не выбрана", label="Категории")
     husband = forms.ModelChoiceField(queryset=Husband.objects.all(), empty_label="Не замужем", required=False, label="Муж")
 
-
     class Meta:
         model = Women
         fields = ['title', 'slug', 'content', 'is_published', 'cat', 'husband', 'tags']
@@ -39,5 +36,9 @@ class AddPostForm(forms.ModelForm):
         title = self.cleaned_data['title']
         if len(title) > 50:
             raise ValidationError("Длина превышает 50 символов")
-        
+
         return title
+
+
+class UploadFileForm(forms.Form):
+    file = forms.ImageField(label="Файл")
