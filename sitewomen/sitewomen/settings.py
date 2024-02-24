@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
-from django.conf.global_settings import MEDIA_ROOT
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,13 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-q+)eb9^vmfv%gqrbm%45jl+wy^d9byg1&vq-5c9$6bhyb%u_ds'
+SECRET_KEY = 'django-insecure-ywt^i-jce1cq%5q4s^p0130-h9x9vdmvmge-vf8g+htkga+=71'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
-INTERNAL_IPS = ["127.0.0.1",]
+INTERNAL_IPS = ["127.0.0.1"]
 
 
 # Application definition
@@ -130,6 +128,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
